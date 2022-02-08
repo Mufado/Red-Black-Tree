@@ -9,7 +9,7 @@ int main()
     external->color = 'N';
     node *root = external;
 
-    int node_quanity = 20;
+    /*int node_quanity = 20;
 
     int count;
     for(count = 0; count < node_quanity; count++)
@@ -17,8 +17,21 @@ int main()
         node *new_node = (node*)(malloc(sizeof(node)));
         new_node->value = 10;
         InsertRN(&new_node, &root);
-    }
+    }*/
 
-    InOrder(&root);
+    CreateNodeAndInsert(10, &root);
+    CreateNodeAndInsert(1, &root);
+    //PreOrder(root);
+    //printf("\n");
+
+    CreateNodeAndInsert(4, &root);
+    PreOrder(root);
+    printf("\n");
+    // CreateNodeAndInsert(, &root);
+    // CreateNodeAndInsert(, &root);
+    // CreateNodeAndInsert(, &root);
+    // CreateNodeAndInsert(, &root);
+    // CreateNodeAndInsert(, &root);
+
     return 0;
 }

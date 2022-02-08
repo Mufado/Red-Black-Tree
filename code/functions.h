@@ -10,16 +10,20 @@ typedef struct no
     int value;
 }node;
 
-void MoveDad(node **losedad_pt, node **gaindad_pt, node **root);
+void MoveDad(node *losedad_pt, node *gaindad_pt, node **root);
 
-void InsertRN(node **new_node, node **root);
+void InsertRN(node *new_node, node **root);
 
-void RotationL(node **pt, node **root);
+void RotationL(node *pt, node **root);
 
-void RotationR(node **pt, node **root);
+void RotationR(node *pt, node **root);
 
-void RotaRN(node **new_node, node **root);
+void RotaRN(node *new_node, node **root);
 
-void InOrder(node **pt);
+void PreOrder(node *pt);
+
+void InOrder(node *pt);
+
+void CreateNodeAndInsert(int value, node **root);
 
 #endif // FUNCTIONS_H_INCLUDED
