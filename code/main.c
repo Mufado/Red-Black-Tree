@@ -21,9 +21,6 @@ int main()
 
     CreateNodeAndInsert(10, &root);
     CreateNodeAndInsert(1, &root);
-    //PreOrder(root);
-    //printf("\n");
-
     CreateNodeAndInsert(4, &root);
     PreOrder(root);
     printf("\n");

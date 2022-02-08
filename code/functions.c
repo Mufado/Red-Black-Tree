@@ -17,8 +17,8 @@ void MoveDad(node *losedad_pt, node *gaindad_pt, node **root)
     if (losedad_pt->dad == external)
     {
         *root = gaindad_pt;
-        // printf("\n%d %c\n", gaindad_pt->dad->value, gaindad_pt->dad->color);
-    }else
+    }
+    else
     {
         if (losedad_pt == losedad_pt->dad->esq)
         {
@@ -35,38 +35,23 @@ void MoveDad(node *losedad_pt, node *gaindad_pt, node **root)
 void RotationL(node *pt, node **root)
 {
     MoveDad(pt, pt->dir, &(*root));
-    pt->dir = pt->dir->esq;
+    node *aux = pt->dir;
+    pt->dir = aux->esq;
+    aux->esq = pt;
+    pt->dad = aux;
     if (pt->dir != external)
         pt->dir->dad = pt;
-    if (pt->dad->value > pt->value)
-    {
-        pt->dad->esq->esq = pt;
-        pt->dad = (pt->dad->esq);
-    }
-    else
-    {
-        pt->dad->dir->esq = pt;
-        pt->dad = (pt->dad->dir);
-    }
 }
 
 void RotationR(node *pt, node **root)
 {
     MoveDad(pt, pt->esq, &(*root));
-    //printf("\n%d %c\n", pt->value, pt->color);
-    pt->esq = pt->esq->dir;
+    node *aux = pt->esq;
+    pt->esq = aux->dir;
+    aux->dir = pt;
+    pt->dad = aux;
     if (pt->esq != external)
         pt->esq->dad = pt;
-    if (pt->dad->value > pt->value)
-    {
-        pt->dad->esq->dir = pt;
-        pt->dad = (pt->dad->esq);
-    }
-    else
-    {
-        pt->dad->dir->dir = pt;
-        pt->dad = (pt->dad->dir);
-    }
 }
 
 void RotaRN(node *new_node, node **root)
